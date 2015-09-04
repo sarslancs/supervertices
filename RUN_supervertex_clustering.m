@@ -11,7 +11,7 @@ keepRatio       = lookup_ratio_for_sampling(nSupervs, hem); % Keep ratio for sam
 saveOutput      = 0; % Save the generated output?  
 
 %% Set input/output directories
-readFrom = '/vol/vipdata/data/HCP100/100307/structural/MNINonLinear/fsaverage_LR32k/';
+readFrom = ['/data/HCP100/' subjectID];
 % Please set the directory the files will be read from, if not specified,
 % the output directory will be set automatically.
 
