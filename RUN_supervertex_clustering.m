@@ -7,7 +7,7 @@ subjectID       = '100307'; % Subject ID
 hem             = 'L'; % Which hemisphere?
 R               = 20; % Local search space in mm
 nSupervs        = 1000; % Number of supervertices
-keepRatio       = lookup_ratio_for_sampling(n, hem); % Keep ratio for sampling
+keepRatio       = lookup_ratio_for_sampling(nSupervs, hem); % Keep ratio for sampling
 saveOutput      = 0; % Save the generated output?  
 
 %% Set input/output directories
