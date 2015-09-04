@@ -54,7 +54,7 @@ assert(nSupervs == length(seedCoors));
 [ superLabels, superBunches, superVertices, superIdx ] = supervertex_clustering(timeseries, vGray, corticalMask, seedCoors, seedIdx, adj, R, geodesics);
 
 %% Compute the adjacency matrix for supervertices
-N = find_neighbours_among_supervertices(nSupervs, superLabels, corticalMask, faces);            
+N = find_neighbours_among_supervertices(nSupervs, superLabels, corticalMask, fGray);            
 
 %% Save output data structures for further analysis (e.g. the second clustering stage)
 if saveOutput
