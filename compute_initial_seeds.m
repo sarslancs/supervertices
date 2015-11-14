@@ -1,7 +1,7 @@
 function [ seeds, idx ] = compute_initial_seeds( vSphere, fSphere, vGray, corticalMask, ratio )
 %COMPUTE_INITIAL_SEEDS Computes initial seeds for clustering
 %   [ SEEDS, IDX ] = COMPUTE_INITIAL_SEEDS( VSPHERE, FSPHERE, VGRAY, CORTICALMASK, RATIO )
-%   conputes the initial seeds using mesh resampling and knn search. The
+%   computes the initial seeds using mesh resampling and knn search. The
 %   spherical mesh represented by its vertices (VSPHERE) and faces
 %   (FSPHERE) is uniformly subsampled into some percantage of the original
 %   mesh, indicated by the decimation rate RATIO. The resulting vertices are 
