@@ -1,8 +1,8 @@
 function [ dists ] = dist_func( XI, XJ, dg, R )
 %DIST_FUNC Hybrid distance function that combines functional and spatial
-%smilarity
+%similarity
 %   [ DISTS ] = DIST_FUNC( XI, XJ, DG, R ) implements the distance function
-%   D = sqrt(((dc / Nc) .^ 2) + ((dg / Ng) .^ 2)) where dc and DG 
+%   D = sqrt(((dc / Nc) .^ 2) + ((dg / Ng) .^ 2)) where dc and dg 
 %   correspond to the functional and spatial distance measures, 
 %   respectively. Functional similarity is measured by the Pearson’s 
 %   distance transformation. Spatial proximity is measured by the geodesic 
