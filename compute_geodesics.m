@@ -15,6 +15,9 @@ function [ geodesics ] = compute_geodesics( adjWeighted, corticalMask, R, verbos
 %   graphshortestpath has been used within a for loop, which could take up
 %   to a few hours to finish for the entire cortex, depending on your
 %   computational power.
+%
+%   Please see the alternative of this function, compute_geodesics_wb_command. 
+%   It may come in handy too.
 
 maskedIds = find(corticalMask == 1);
 localIdx = cell(length(corticalMask), 1);
