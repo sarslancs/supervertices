@@ -56,5 +56,5 @@ according to your own directory structure.
 
 Tutorial:
 Simply run RUN_supervertex_clustering after setting the Path and updating 
-the directories from which the datasets are read.
+the directories from which the data is read.
 
