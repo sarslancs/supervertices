@@ -14,9 +14,8 @@ function [ geodesics ] = compute_geodesics_wb_command( subjectID, inFolder, hem,
 %   printed on the console
 %
 %   DIFFERENCE FROM COMPUTE_GEODESIC: This function directly makes use of
-%   the native wb_command utility, distributed as part of the HCP Workbench
-%   Workbench, available at 
-%   http://www.humanconnectome.org/software/get-connectome-workbench.html
+%   the native wb_command utility, distributed as part of the HCP Workbench,
+%   available at http://www.humanconnectome.org/software/get-connectome-workbench.html
 %   In order to use this function, the "wb_command" variable below should 
 %   be set to the path the wb_command executable has been extracted to. 
 %    
