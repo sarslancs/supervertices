@@ -2,7 +2,7 @@ function [ geodesics ] = compute_geodesics( adjWeighted, corticalMask, R, verbos
 %COMPUTE_GEODESICS Compute geoedesic distances within the given range
 %   [ GEODESICS ] = COMPUTE_GEODESICS( ADJWEIGHTED, CORTICALMASK, R, VERBOSE )
 %   returns a cell structure of size 2 x 1, which stores the geodesic
-%   distances of the cortical vertices and their neighbours across the 
+%   distances of the cortical vertices to their neighbours across the 
 %   cortical mesh. The distances are computed only for the cortical area
 %   masked with CORTICALMASK and within the local neighbourhood of each
 %   vertex, specified by R in mm. 
