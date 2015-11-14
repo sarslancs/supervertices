@@ -6,8 +6,11 @@ function [ N ] = find_neighbours_among_supervertices( nSupervs, superLabels, cor
 %	constrained hierarchical clustering algorithm on the supervertices if
 %	the merging is to be performed only between the adjacent supervertices.
 
+% Neighbourhood matrix N
 N = zeros(nSupervs,nSupervs);
-[ map32to29, map29to32 ] = mapSurfaces(corticalMask);
+
+% Mappers
+[ map32to29, map29to32 ] = cortical_mappers(corticalMask);
 
 for i = 1 : nSupervs    
     maps = map29to32(superLabels == i);

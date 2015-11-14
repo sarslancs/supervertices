@@ -4,7 +4,7 @@ function [ seeds, idx ] = compute_initial_seeds( vSphere, fSphere, vGray, cortic
 %   conputes the initial seeds using mesh resampling and knn search. The
 %   spherical mesh represented by its vertices (VSPHERE) and faces
 %   (FSPHERE) is uniformly subsampled into some percantage of the original
-%   mesh, indicated by the decimation rate RATIO. The resilting vertices are 
+%   mesh, indicated by the decimation rate RATIO. The resulting vertices are 
 %   then masked with CORTICALMASK to exlude the vertices with no timeseries 
 %   data. Returns the coordinates of the seed vertices (SEEDS) and their
 %   ids (IDX) on the cortical surface.

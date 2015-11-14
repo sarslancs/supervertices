@@ -5,8 +5,8 @@ function [ adj, adj_weighted ] = compute_vertex_nhood( verticalCoords, meshFaces
 %   returns two, n x n sparse matrices. ADJ is a binary matrix of the 
 %   adjacent vertices in the cortical mesh, whereas ADJ_WEIGHTED is a 
 %   weight matrix of the distances between the adjacent vertices. The
-%   cortical mesh is given its cooridantes VERTICALCOORDS and and faces 
-%   MESHFACES.
+%   cortical mesh is represented by the vertex coordinates VERTICALCOORDS  
+%   and and faces MESHFACES.
 
 
 nVertices = length(verticalCoords);
@@ -29,7 +29,7 @@ for i = 1 : nVertices;
 end
 
 dynamicDists(dynamicDists(:,1) == 0,:) = [];
-adj = sparse(dynamicDists(:,1),dynamicDists(:,2),ones(length(dynamicDists),1),nVertices,nVertices);
 adj_weighted = sparse(dynamicDists(:,1),dynamicDists(:,2),dynamicDists(:,3),nVertices,nVertices);
-   
+adj = adj_weighted;  
+adj(adj > 0) = 1;
 

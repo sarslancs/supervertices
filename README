@@ -42,18 +42,19 @@ SUPERVERTEX CLUSTERING
 Developed in MATLAB R2014a on Ubuntu 14.04
 
 Prerequisites:
-iso2mesh: a Matlab-based mesh generator @ http://iso2mesh.sourceforge.net/
-MATLAB GIfTI library @ http://www.artefact.tk/software/matlab/gifti/
-Connectome Workbench @ http://www.humanconnectome.org/software/get-connectome-workbench.html
+(MUST) iso2mesh: a Matlab-based mesh generator 
+       http://iso2mesh.sourceforge.net/
+(COND) Connectome Workbench
+       http://www.humanconnectome.org/software/get-connectome-workbench.html
 
 Dataset:
-This version has been tested on the Human Connectome Project (HCP) datasets. The
-code has a deep dependency with the HCP data structures. The data can be 
+This version has been tested on the Human Connectome Project (HCP) datasets. 
+The code has a deep dependency with the HCP data structures. The data can be 
 downloaded from https://db.humanconnectome.org. Make sure that you extract 
-all the files into the same folder or you may need to modify the code 
+all the files into the same folder or you may need to modify the main script 
 according to your own directory structure.
 
 Tutorial:
 Simply run RUN_supervertex_clustering after setting the Path and updating 
-directories the datasets are read from.
+the directories from which the datasets are read.
 

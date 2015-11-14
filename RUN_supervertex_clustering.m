@@ -1,6 +1,6 @@
 %% Set Path
 % addpath('../lib/mesh/iso2mesh'); % http://iso2mesh.sourceforge.net/
-% addpath('../lib/@gifti'); % http://www.artefact.tk/software/matlab/gifti/
+addpath('lib/'); % http://www.artefact.tk/software/matlab/gifti/
 
 %% Set parameters
 subjectID       = '100307'; % Subject ID
@@ -11,12 +11,11 @@ keepRatio       = lookup_ratio_for_sampling(nSupervs, hem); % Keep ratio for sam
 saveOutput      = 0; % Save the generated output?  
 
 %% Set input/output directories
-readFrom = ['/data/HCP100/' subjectID];
+readFrom = ['/vol/vipdata/data/HCP100/' subjectID];
 % Please set the directory the files will be read from, if not specified,
 % the output directory will be set automatically.
 
-writeTo = [readFrom 'out/'];
-
+writeTo = [readFrom '/out/'];
 if ~isdir(writeTo)
     mkdir(writeTo);
 end
@@ -36,26 +35,28 @@ fileName = [subjectID '.' hem '.atlasroi.32k_fs_LR.shape.gii'];
 g = gifti([readFrom fileName]);  
 corticalMask = g.cdata;
 
-%% Compute the adjacency neighbourhood matrix
+%% Compute the adjacency neighbourhood matrix and the geodesic distance
 [ adj, adjWeighted ] = compute_vertex_nhood( vGray, fGray ); 
-
-%% Load data
 geodesics = compute_geodesics( adjWeighted, corticalMask, R );
 
+%% Load data
 fileName = [readFrom 'rfMRI_REST1_LR_Atlas_hp2000_clean.dtseries.nii'];
-dtseries = read_cifti(fileName);
+dtseries = read_cfiifti(fileName);
 timeseries = get_cortical_timeseries( dtseries, hem );
 
 %% Compute initial seed vertices
-[ seedCoors, seedIdx ] = compute_initial_seeds( vSphere, fSphere, vGray, corticalMask, keepRatio );
+[ seedCoors, seedIdx ] = compute_initial_seeds( ...
+    vSphere, fSphere, vGray, corticalMask, keepRatio );
 assert(nSupervs == length(seedCoors));
 
 %% Compute supervertices
-[ superLabels, superBunches, superVertices, superIdx ] = supervertex_clustering(timeseries, vGray, corticalMask, seedCoors, seedIdx, adj, R, geodesics);
+[ superLabels, superBunches, superVertices, superIdx ] = ...
+    supervertex_clustering(timeseries, vGray, corticalMask, ...
+    seedCoors, seedIdx, adj, R, geodesics);
 
 %% Compute the adjacency matrix for supervertices
-N = find_neighbours_among_supervertices(nSupervs, superLabels, corticalMask, fGray);            
-
+N = find_neighbours_among_supervertices(nSupervs, superLabels, corticalMask, fGray); 
+           
 %% Save output data structures for further analysis (e.g. the second clustering stage)
 if saveOutput
     save([writeTo 'superBunches_n' num2str(nSupervs) '_' hem '.mat'],'superBunches');
