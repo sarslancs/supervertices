@@ -40,6 +40,7 @@
 Developed in MATLAB R2014a on Ubuntu 14.04
 
 Prerequisites:
+
 (MUST) iso2mesh: a Matlab-based mesh generator 
        http://iso2mesh.sourceforge.net/
 (COND) Connectome Workbench
