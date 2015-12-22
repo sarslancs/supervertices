@@ -43,10 +43,12 @@ Prerequisites:
 
 (MUST) iso2mesh: a Matlab-based mesh generator 
        http://iso2mesh.sourceforge.net/
+       
 (COND) Connectome Workbench
        http://www.humanconnectome.org/software/get-connectome-workbench.html
 
-#Dataset
+Dataset:
+
 This version has been tested on the Human Connectome Project (HCP) datasets. 
 The code has a deep dependency with the HCP data structures. The data can be 
 downloaded from https://db.humanconnectome.org. Make sure that you extract 
