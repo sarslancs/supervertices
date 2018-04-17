@@ -41,7 +41,7 @@ geodesics = compute_geodesics( adjWeighted, corticalMask, R );
 
 %% Load data
 fileName = [readFrom 'rfMRI_REST1_LR_Atlas_hp2000_clean.dtseries.nii'];
-dtseries = read_cfiifti(fileName);
+dtseries = read_cifti(fileName);
 timeseries = get_cortical_timeseries( dtseries, hem );
 
 %% Compute initial seed vertices
